@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750">
+  <rect width="1000" height="750" fill="#f8fafc"/>
+  <rect x="120" y="320" width="250" height="220" rx="24" fill="#0b2a5b"/>
+  <rect x="330" y="230" width="250" height="310" rx="24" fill="#1e3a8a"/>
+  <rect x="570" y="300" width="250" height="240" rx="24" fill="#d4a72c"/>
+  <path d="M120 350h250M330 270h250M570 340h250" stroke="#ffffff" stroke-width="14" opacity=".3"/>
+  <text x="120" y="640" fill="#0f172a" font-family="Outfit, Arial, sans-serif" font-size="36" font-weight="700">Replace with real moving boxes photo</text>
+</svg>

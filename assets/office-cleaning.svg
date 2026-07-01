@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750">
+  <rect width="1000" height="750" fill="#eff6ff"/>
+  <rect x="120" y="120" width="760" height="510" rx="30" fill="#0b2a5b"/>
+  <rect x="180" y="190" width="250" height="150" rx="22" fill="#ffffff" opacity=".22"/>
+  <rect x="470" y="190" width="230" height="280" rx="24" fill="#ffffff" opacity=".16"/>
+  <rect x="720" y="190" width="90" height="350" rx="18" fill="#22c55e" opacity=".52"/>
+  <rect x="220" y="410" width="180" height="110" rx="20" fill="#ffffff" opacity=".88"/>
+  <text x="140" y="680" fill="#0f172a" font-family="Outfit, Arial, sans-serif" font-size="36" font-weight="700">Replace with office cleaning photo</text>
+</svg>

@@ -1,0 +1,9 @@
+{
+  "name": "decarvalho/site",
+  "description": "Multilingual institutional site for De Carvalho Service GmbH",
+  "type": "project",
+  "require": {
+    "php": "^8.1",
+    "phpmailer/phpmailer": "^6.10"
+  }
+}

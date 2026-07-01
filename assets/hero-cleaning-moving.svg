@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b2a5b"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="980" cy="170" r="140" fill="#d62828" opacity=".22"/>
+  <circle cx="180" cy="720" r="180" fill="#22c55e" opacity=".18"/>
+  <rect x="120" y="150" width="440" height="520" rx="30" fill="#ffffff" opacity=".14"/>
+  <rect x="640" y="240" width="360" height="260" rx="24" fill="#ffffff" opacity=".12"/>
+  <path d="M200 620h420" stroke="#ffffff" stroke-width="18" stroke-linecap="round" opacity=".28"/>
+  <path d="M688 563h252l80-82v136H688z" fill="#ffffff" opacity=".18"/>
+  <rect x="760" y="515" width="106" height="64" rx="18" fill="#ffffff" opacity=".24"/>
+  <circle cx="760" cy="620" r="44" fill="#ffffff" opacity=".16"/>
+  <circle cx="960" cy="620" r="44" fill="#ffffff" opacity=".16"/>
+  <text x="120" y="120" fill="#ffffff" font-family="Outfit, Arial, sans-serif" font-size="44" font-weight="700">Placeholder asset</text>
+  <text x="120" y="770" fill="#ffffff" font-family="Outfit, Arial, sans-serif" font-size="30" opacity=".8">Replace with a real client photo for better conversion.</text>
+</svg>

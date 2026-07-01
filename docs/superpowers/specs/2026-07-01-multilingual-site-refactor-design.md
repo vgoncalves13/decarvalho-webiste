@@ -5,7 +5,7 @@ Status: Approved for spec review
 
 ## Objective
 
-Refactor the current single-file landing page into a multilingual, SEO-oriented website with separate German and Portuguese versions, shared static assets, and a PHP backend for the contact form using PHPMailer when the hosting environment supports PHP.
+Refactor the current single-file landing page into a multilingual, SEO-oriented website with separate German and Portuguese versions, shared static assets, and a PHP backend for the contact form using PHPMailer.
 
 The current site mixes German and Portuguese in the same interface, keeps CSS and JS inline inside the HTML, and uses a fake contact form submission based on `alert()`. The refactor should preserve the current visual identity while improving maintainability, internationalization, conversion, and local SEO for Switzerland.
 
@@ -16,7 +16,7 @@ This work includes:
 - Splitting the site into language-specific entry points for `de-CH` and `pt`
 - Creating a lightweight root entry page with language detection
 - Moving CSS and JS out of inline HTML into shared asset files
-- Replacing the fake form with a real email submission endpoint, preferring PHP plus PHPMailer when available
+- Replacing the fake form with a real email submission endpoint using PHP plus PHPMailer
 - Adding language switching, localized SEO metadata, hreflang, Open Graph, and JSON-LD
 - Preserving the existing visual direction and improving mobile CTA behavior
 
@@ -26,11 +26,6 @@ This work does not include:
 - Introducing a CMS or admin panel
 - Confirming unverified business claims
 - Inventing address, registration, or legal data not provided by the client
-
-Environment constraint:
-
-- Before implementation, verify whether the target hosting environment supports PHP
-- If PHP is unavailable, switch the contact flow to a static-friendly external form endpoint such as Formspree or Netlify Forms
 
 ## Current Site Analysis
 
@@ -276,7 +271,7 @@ The form will submit asynchronously to `/api/contact.php`.
 - Reject obviously empty or suspicious submissions
 - Check a honeypot field and reject submissions that fill it
 - Build an email body with the submitted data
-- Prefer sending with PHPMailer over SMTP when available
+- Send using PHPMailer over SMTP
 - Allow the destination email to be configured in one obvious location
 - Use PHP `mail()` only as a minimal fallback when the hosting provider is already configured for reliable delivery
 - Return JSON success or error responses
@@ -311,7 +306,7 @@ Initial implementation may use a placeholder destination such as `info@decarvalh
 
 ### Operational Risk
 
-Reliable contact delivery depends on hosting support for PHP and mail transport. Even correct code can fail if SMTP credentials are missing, PHPMailer is unavailable, or server mail transport is not configured.
+Reliable contact delivery depends on the mail transport configuration. Even correct code can fail if SMTP credentials are missing, PHPMailer is unavailable, or server mail transport is not configured.
 
 ### Privacy Notice
 
@@ -379,7 +374,7 @@ The later implementation plan should cover, in order:
 3. Extract shared JS and language redirect logic into separate files
 4. Build `/de/index.php` and `/pt/index.php` with localized copy and metadata
 5. Build `/index.php` as the lightweight entry and language detector
-6. Verify PHP support in the target environment and confirm the mail transport strategy
+6. Confirm the mail transport strategy and configuration points
 7. Implement `/api/contact.php` with PHPMailer, validation, honeypot, and JSON responses
 8. Wire the localized forms and CTA actions
 9. Verify links, `hreflang`, accessibility, privacy notice, and responsive behavior
