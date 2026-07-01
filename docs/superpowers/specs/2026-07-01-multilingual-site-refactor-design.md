@@ -5,7 +5,7 @@ Status: Approved for spec review
 
 ## Objective
 
-Refactor the current single-file landing page into a multilingual, SEO-oriented website with separate German and Portuguese versions, shared static assets, and a simple PHP backend for the contact form.
+Refactor the current single-file landing page into a multilingual, SEO-oriented website with separate German and Portuguese versions, shared static assets, and a PHP backend for the contact form using PHPMailer when the hosting environment supports PHP.
 
 The current site mixes German and Portuguese in the same interface, keeps CSS and JS inline inside the HTML, and uses a fake contact form submission based on `alert()`. The refactor should preserve the current visual identity while improving maintainability, internationalization, conversion, and local SEO for Switzerland.
 
@@ -16,7 +16,7 @@ This work includes:
 - Splitting the site into language-specific entry points for `de-CH` and `pt`
 - Creating a lightweight root entry page with language detection
 - Moving CSS and JS out of inline HTML into shared asset files
-- Replacing the fake form with a real PHP email submission endpoint
+- Replacing the fake form with a real email submission endpoint, preferring PHP plus PHPMailer when available
 - Adding language switching, localized SEO metadata, hreflang, Open Graph, and JSON-LD
 - Preserving the existing visual direction and improving mobile CTA behavior
 
@@ -26,6 +26,11 @@ This work does not include:
 - Introducing a CMS or admin panel
 - Confirming unverified business claims
 - Inventing address, registration, or legal data not provided by the client
+
+Environment constraint:
+
+- Before implementation, verify whether the target hosting environment supports PHP
+- If PHP is unavailable, switch the contact flow to a static-friendly external form endpoint such as Formspree or Netlify Forms
 
 ## Current Site Analysis
 
@@ -48,7 +53,7 @@ The current visual direction is acceptable and should be preserved:
 
 ## Recommended Architecture
 
-Use static-like PHP pages with separate URLs per language and a simple backend endpoint for contact submission.
+Use static-like PHP pages with separate URLs per language and a backend endpoint for contact submission.
 
 ### File Structure
 
@@ -79,7 +84,7 @@ Use static-like PHP pages with separate URLs per language and a simple backend e
 
 - Separate `de/` and `pt/` URLs provide cleaner SEO targeting and straightforward `hreflang`
 - Shared assets keep styling and interaction logic centralized
-- PHP is used only where it adds value: root routing behavior and contact submission
+- PHP is used only where it adds value: language entry behavior and contact submission
 - No framework or build step keeps deployment simple on common PHP hosting
 
 ## Language Strategy
@@ -90,17 +95,19 @@ Use static-like PHP pages with separate URLs per language and a simple backend e
 
 Behavior:
 
+- Always show visible links to both language versions
 - If the user already chose a language manually, respect that preference
 - If there is no saved preference, detect browser language client-side
-- If the browser language starts with `pt`, direct the user to `/pt/`
-- Otherwise direct the user to `/de/`
+- If the browser language starts with `pt`, JS may redirect human users to `/pt/`
+- Otherwise JS may redirect human users to `/de/`
 - Save manual language selection in `localStorage`
 - Never prevent the user from switching language manually
 
 SEO constraint:
 
-- The root page should not behave like an opaque forced redirect for crawlers
+- The root page must not behave like an opaque forced redirect for crawlers
 - It should remain lightweight and predictable, with explicit links to both language versions
+- Users and crawlers must always have clear access to `/de/` and `/pt/`
 
 ### Language Switcher
 
@@ -144,13 +151,14 @@ No page should mix languages in the visible interface. The German page will be e
 
 ### Claims Requiring Client Validation
 
-These may appear in the current site or desired copy, but must remain subject to later confirmation:
+These may appear in the current site or desired copy, but must remain subject to later confirmation or be omitted until confirmed:
 
 - `Versichert`
 - Service across all Switzerland
 - Response within 24 hours
 - Formal end-cleaning guarantee wording
 - Any legal registration identifiers
+- Ratings or review aggregates
 
 ## SEO and Metadata
 
@@ -206,7 +214,8 @@ Rules:
 
 - Include business name, website, contact details already known, and service category
 - Do not invent address or geographic details
-- Leave easy-to-find placeholders or omit unsupported fields
+- Do not invent registration number, aggregate rating, opening hours, or precise service areas
+- Omit unsupported fields rather than fabricating them
 
 ## UX and Conversion
 
@@ -263,8 +272,13 @@ The form will submit asynchronously to `/api/contact.php`.
 - Accept only `POST`
 - Validate required fields
 - Sanitize user input
+- Apply input length limits
+- Reject obviously empty or suspicious submissions
+- Check a honeypot field and reject submissions that fill it
 - Build an email body with the submitted data
-- Send email using PHP `mail()`
+- Prefer sending with PHPMailer over SMTP when available
+- Allow the destination email to be configured in one obvious location
+- Use PHP `mail()` only as a minimal fallback when the hosting provider is already configured for reliable delivery
 - Return JSON success or error responses
 
 ### Frontend Behavior
@@ -275,6 +289,7 @@ The frontend JS will:
 - Disable the submit button during submission
 - Show localized success and error messages
 - Preserve a fallback contact route if the request fails
+- Show localized validation errors from JSON responses
 
 ### Fields
 
@@ -288,6 +303,7 @@ Minimum fields:
 Optional:
 
 - Preferred language
+- Honeypot field kept hidden from human users
 
 ### Email Destination
 
@@ -295,7 +311,11 @@ Initial implementation may use a placeholder destination such as `info@decarvalh
 
 ### Operational Risk
 
-PHP `mail()` depends on server mail configuration. The code can be correct while delivery still fails if SMTP/sendmail is not configured on hosting.
+Reliable contact delivery depends on hosting support for PHP and mail transport. Even correct code can fail if SMTP credentials are missing, PHPMailer is unavailable, or server mail transport is not configured.
+
+### Privacy Notice
+
+Add a short privacy notice below the form stating that submitted contact data will only be used to respond to the quote request.
 
 ## Asset Strategy
 
@@ -359,9 +379,10 @@ The later implementation plan should cover, in order:
 3. Extract shared JS and language redirect logic into separate files
 4. Build `/de/index.php` and `/pt/index.php` with localized copy and metadata
 5. Build `/index.php` as the lightweight entry and language detector
-6. Implement `/api/contact.php` with validation and JSON responses
-7. Wire the localized forms and CTA actions
-8. Verify links, `hreflang`, accessibility, and responsive behavior
+6. Verify PHP support in the target environment and confirm the mail transport strategy
+7. Implement `/api/contact.php` with PHPMailer, validation, honeypot, and JSON responses
+8. Wire the localized forms and CTA actions
+9. Verify links, `hreflang`, accessibility, privacy notice, and responsive behavior
 
 ## Open Client Confirmations
 
@@ -374,6 +395,7 @@ These must be confirmed with the client after implementation or before launch:
 - Whether `Endreinigung mit Abnahmegarantie` is a formal guaranteed offer
 - Business registration details, if intended to appear on the site
 - Whether “response within 24 hours” is a real commitment
+- Whether ratings or testimonials are available and approved for publication
 
 ## Acceptance Criteria
 
@@ -385,6 +407,6 @@ The refactor is successful when:
 - The root page provides lightweight language entry behavior
 - The language switcher is visible and persists manual choice
 - The contact form performs a real backend submission
+- The contact form includes basic anti-spam protection
 - The site exposes localized SEO metadata and `hreflang`
 - The visual identity remains consistent with the current site
-
