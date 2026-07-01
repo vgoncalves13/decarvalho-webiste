@@ -13,7 +13,7 @@ $primaryPhone = $phones[0] ?? ['display' => '', 'href' => ''];
 $publicEmail = (string) ($config['public_email'] ?? '');
 $whatsAppNumber = (string) ($config['whatsapp_number'] ?? '');
 $canonical = $baseUrl . $page['path'];
-$alternateUrl = $baseUrl . $page['alternate_path'];
+$alternateUrl = $page['alternate_path'];
 $rootUrl = $baseUrl . '/';
 $ogImage = $baseUrl . '/assets/og-cover.svg';
 $whatsAppUrl = 'https://wa.me/' . rawurlencode($whatsAppNumber) . '?text=' . rawurlencode($page['whatsapp_message']);
