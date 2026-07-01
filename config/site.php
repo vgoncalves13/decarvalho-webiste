@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 return [
-    'base_url' => 'https://example.ch',
+    'base_url' => 'https://decarvalhoservice.ch',
     'company_name' => 'De Carvalho Service GmbH',
     'destination_email' => 'info@decarvalhoservice.ch',
     'public_email' => 'info@decarvalhoservice.ch',
