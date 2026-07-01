@@ -179,6 +179,27 @@ svg {
 .nav-cta {
   padding: 10px 18px;
   border-radius: 999px;
+  background: var(--navy);
+  color: #fff;
+  font-weight: 800;
+  box-shadow: 0 10px 22px -18px rgba(11, 42, 91, 0.85);
+}
+
+.nav-links .nav-cta {
+  color: #fff;
+  font-weight: 800;
+}
+
+.nav-links .nav-cta:hover,
+.nav-links .nav-cta:focus-visible {
+  color: #fff;
+}
+
+.nav-cta:hover,
+.nav-cta:focus-visible {
+  background: var(--navy-deep);
+  color: #fff;
+  box-shadow: 0 14px 24px -18px rgba(6, 29, 63, 0.9);
 }
 
 .nav-cta:hover,
