@@ -137,7 +137,7 @@ function renderIcon(string $name): string
 
         <div class="hero-visual fade-in">
           <div class="hero-img-wrap">
-            <img src="/assets/hero-cleaning-moving.svg" alt="<?= h($page['hero']['image_alt']) ?>" width="1200" height="900" />
+            <img src="/assets/hero_site.png" alt="<?= h($page['hero']['image_alt']) ?>" width="1200" height="900" />
           </div>
           <div class="floating-card fc-1">
             <div class="floating-ico"><?= renderIcon('sparkles') ?></div>
@@ -215,7 +215,7 @@ function renderIcon(string $name): string
         </div>
 
         <div class="why-img fade-in">
-          <img src="/assets/cleaning-supplies.svg" alt="<?= h($page['why']['image_alt']) ?>" width="1000" height="1200" loading="lazy" />
+          <img src="/assets/why_secondary.png" alt="<?= h($page['why']['image_alt']) ?>" width="1000" height="1200" loading="lazy" />
           <div class="why-img-badge">
             <div class="seal"><?= h($page['why']['badge']['title']) ?></div>
             <div class="seal-text">
