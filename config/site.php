@@ -28,11 +28,4 @@ return [
         'email' => (string) $get('DEFAULT_FROM_EMAIL', 'no-reply@example.ch'),
         'name' => (string) $get('DEFAULT_FROM_NAME', 'De Carvalho Service Website'),
     ],
-    'smtp' => [
-        'host' => (string) $get('SMTP_HOST', 'smtp.example.ch'),
-        'port' => (int) $get('SMTP_PORT', 587),
-        'username' => (string) $get('SMTP_USERNAME', 'smtp-user'),
-        'password' => (string) $get('SMTP_PASSWORD', 'smtp-password'),
-        'encryption' => (string) $get('SMTP_ENCRYPTION', 'tls'),
-    ],
 ];

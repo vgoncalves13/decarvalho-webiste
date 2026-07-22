@@ -113,15 +113,10 @@ $body = implode(PHP_EOL, [
 
 try {
     $mail = new PHPMailer(true);
-    $mail->isSMTP();
-    $mail->Host = (string) $config['smtp']['host'];
-    $mail->Port = (int) $config['smtp']['port'];
-    $mail->SMTPAuth = true;
-    $mail->Username = (string) $config['smtp']['username'];
-    $mail->Password = (string) $config['smtp']['password'];
-    $mail->SMTPSecure = (string) $config['smtp']['encryption'];
+    $mail->isMail();
     $mail->CharSet = 'UTF-8';
     $mail->setFrom((string) $config['default_from']['email'], (string) $config['default_from']['name']);
+    $mail->Sender = (string) $config['default_from']['email'];
     $mail->addAddress((string) $config['destination_email'], (string) $config['company_name']);
 
     if (filter_var($contact, FILTER_VALIDATE_EMAIL)) {
