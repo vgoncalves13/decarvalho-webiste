@@ -93,49 +93,14 @@ svg {
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
-  font-weight: 800;
-  color: var(--navy);
-  letter-spacing: -0.01em;
 }
 
-.logo-mark {
-  position: relative;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: var(--navy);
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-}
-
-.logo-mark::after {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: var(--red);
-  border-radius: 2px;
-}
-
-.logo-mark::before,
-.logo-mark .cross-h {
-  content: "";
-  position: absolute;
-  background: #fff;
-  z-index: 1;
-}
-
-.logo-mark::before {
-  width: 2px;
-  height: 14px;
-}
-
-.logo-mark .cross-h {
-  width: 14px;
-  height: 2px;
+.logo-image {
+  width: auto;
+  height: 52px;
+  max-width: min(280px, 48vw);
+  object-fit: contain;
 }
 
 .nav-links {
@@ -1049,6 +1014,14 @@ h2 {
   font-weight: 800;
   color: #fff;
   margin-bottom: 10px;
+}
+
+.footer-logo-image {
+  width: auto;
+  height: 72px;
+  max-width: min(360px, 85vw);
+  margin: 0 auto 14px;
+  object-fit: contain;
 }
 
 .footer-tag {

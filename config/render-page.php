@@ -81,8 +81,7 @@ function renderIcon(string $name): string
   <nav class="site-nav">
     <div class="nav-inner">
       <a href="<?= h($page['path']) ?>" class="logo" aria-label="<?= h($companyName) ?>">
-        <span class="logo-mark"><span class="cross-h"></span></span>
-        <span><?= h($companyName) ?></span>
+        <img src="/assets/decarvalho_logo.png" alt="<?= h($companyName) ?>" class="logo-image" width="2508" height="627" />
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="<?= h($page['menu_label']) ?>">
         <span></span><span></span><span></span>
@@ -328,7 +327,7 @@ function renderIcon(string $name): string
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-logo"><?= h($companyName) ?></div>
+      <img src="/assets/decarvalho_logo.png" alt="<?= h($companyName) ?>" class="footer-logo-image" width="2508" height="627" />
       <p class="footer-tag"><?= h($page['footer']['tagline']) ?></p>
       <div class="footer-bottom"><?= h($page['footer']['legal']) ?></div>
     </div>
