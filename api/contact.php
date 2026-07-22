@@ -30,6 +30,24 @@ $messages = [
         'failed' => 'Não foi possível enviar o pedido. Tente novamente.',
         'success' => 'Obrigado. O seu pedido foi enviado com sucesso.',
     ],
+    'en' => [
+        'method' => 'Invalid request.',
+        'spam' => 'The request was blocked.',
+        'required' => 'Please fill in all required fields.',
+        'contact' => 'Please provide a valid email address or phone number.',
+        'message' => 'Please describe your request in a bit more detail.',
+        'failed' => 'The request could not be sent. Please try again.',
+        'success' => 'Thank you. Your request was sent successfully.',
+    ],
+    'fr' => [
+        'method' => 'Requête invalide.',
+        'spam' => 'La demande a été bloquée.',
+        'required' => 'Veuillez remplir tous les champs obligatoires.',
+        'contact' => 'Veuillez indiquer une adresse e-mail ou un numéro de téléphone valide.',
+        'message' => 'Veuillez décrire votre demande avec un peu plus de détails.',
+        'failed' => 'La demande n’a pas pu être envoyée. Veuillez réessayer.',
+        'success' => 'Merci. Votre demande a bien été envoyée.',
+    ],
 ];
 
 $copy = $messages[$locale] ?? $messages['de'];
@@ -110,9 +128,12 @@ try {
         $mail->addReplyTo($contact, $name);
     }
 
-    $mail->Subject = $locale === 'pt'
-        ? 'Novo pedido do site - ' . $service
-        : 'Neue Website-Anfrage - ' . $service;
+    $mail->Subject = match ($locale) {
+        'pt' => 'Novo pedido do site - ' . $service,
+        'en' => 'New website request - ' . $service,
+        'fr' => 'Nouvelle demande du site - ' . $service,
+        default => 'Neue Website-Anfrage - ' . $service,
+    };
     $mail->Body = $body;
     $mail->AltBody = $body;
     $mail->send();

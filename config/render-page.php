@@ -13,7 +13,6 @@ $primaryPhone = $phones[0] ?? ['display' => '', 'href' => ''];
 $publicEmail = (string) ($config['public_email'] ?? '');
 $whatsAppNumber = (string) ($config['whatsapp_number'] ?? '');
 $canonical = $baseUrl . $page['path'];
-$alternateUrl = $page['alternate_path'];
 $rootUrl = $baseUrl . '/';
 $ogImage = $baseUrl . '/assets/og-cover.svg';
 $whatsAppUrl = 'https://wa.me/' . rawurlencode($whatsAppNumber) . '?text=' . rawurlencode($page['whatsapp_message']);
@@ -26,7 +25,7 @@ $jsonLd = [
     'telephone' => $primaryPhone['display'] ?? '',
     'description' => $page['meta_description'],
     'image' => $ogImage,
-    'knowsLanguage' => ['de-CH', 'pt'],
+    'knowsLanguage' => ['de-CH', 'pt', 'en', 'fr'],
     'serviceType' => $page['structured_services'],
 ];
 
@@ -68,6 +67,8 @@ function renderIcon(string $name): string
   <link rel="canonical" href="<?= h($canonical) ?>" />
   <link rel="alternate" hreflang="de-CH" href="<?= h($baseUrl . '/de/') ?>" />
   <link rel="alternate" hreflang="pt" href="<?= h($baseUrl . '/pt/') ?>" />
+  <link rel="alternate" hreflang="en" href="<?= h($baseUrl . '/en/') ?>" />
+  <link rel="alternate" hreflang="fr" href="<?= h($baseUrl . '/fr/') ?>" />
   <link rel="alternate" hreflang="x-default" href="<?= h($rootUrl) ?>" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -90,9 +91,15 @@ function renderIcon(string $name): string
         <?php foreach ($page['nav'] as $item): ?>
           <a href="#<?= h($item['id']) ?>"><?= h($item['label']) ?></a>
         <?php endforeach; ?>
-        <a href="<?= h($alternateUrl) ?>" class="lang-switch" data-language-link="<?= h($page['alternate_locale']) ?>">
-          <?= h($page['alternate_label']) ?>
-        </a>
+        <div class="language-switcher" aria-label="<?= h($page['language_switcher_label']) ?>">
+          <?php foreach ($page['languages'] as $language): ?>
+            <?php if ($language['locale'] === $page['locale']): ?>
+              <span class="lang-switch is-current" aria-current="page"><?= h($language['label']) ?></span>
+            <?php else: ?>
+              <a href="<?= h($language['path']) ?>" class="lang-switch" data-language-link="<?= h($language['storage']) ?>"><?= h($language['label']) ?></a>
+            <?php endif; ?>
+          <?php endforeach; ?>
+        </div>
         <a href="#contact" class="nav-cta"><?= h($page['cta_primary']) ?></a>
       </div>
     </div>

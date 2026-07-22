@@ -183,10 +183,24 @@ function getMessageConfig(form) {
     error: form.dataset.errorMessage || '',
     loading: form.dataset.loadingMessage || submit,
     submit,
-    invalid: locale.startsWith('pt')
-      ? 'Preencha os campos obrigatórios com informação suficiente.'
-      : 'Bitte füllen Sie die Pflichtfelder mit genügend Informationen aus.',
+    invalid: getInvalidMessage(locale),
   };
+}
+
+function getInvalidMessage(locale) {
+  if (locale.startsWith('pt')) {
+    return 'Preencha os campos obrigatórios com informação suficiente.';
+  }
+
+  if (locale.startsWith('fr')) {
+    return 'Veuillez remplir les champs obligatoires avec suffisamment d’informations.';
+  }
+
+  if (locale.startsWith('en')) {
+    return 'Please fill in the required fields with enough information.';
+  }
+
+  return 'Bitte füllen Sie die Pflichtfelder mit genügend Informationen aus.';
 }
 
 function formatFieldErrors(fieldErrors) {

@@ -6,10 +6,7 @@ $config = require __DIR__ . '/../config/site.php';
 
 $page = [
     'locale' => 'pt',
-    'alternate_locale' => 'de',
-    'alternate_label' => 'Deutsch',
     'path' => '/pt/',
-    'alternate_path' => '/de/',
     'title' => 'Limpeza e mudanças na Suíça | De Carvalho Service GmbH',
     'meta_description' => 'A De Carvalho Service GmbH oferece limpeza, limpeza final, mudanças, transporte de móveis e limpeza de escritórios na Suíça, com atendimento em português e alemão.',
     'structured_services' => [
@@ -20,6 +17,13 @@ $page = [
         'Limpeza de escritórios',
     ],
     'menu_label' => 'Abrir menu',
+    'language_switcher_label' => 'Seletor de idioma',
+    'languages' => [
+        ['locale' => 'de-CH', 'storage' => 'de', 'label' => 'Deutsch', 'path' => '/de/'],
+        ['locale' => 'pt', 'storage' => 'pt', 'label' => 'Português', 'path' => '/pt/'],
+        ['locale' => 'en', 'storage' => 'en', 'label' => 'English', 'path' => '/en/'],
+        ['locale' => 'fr', 'storage' => 'fr', 'label' => 'Français', 'path' => '/fr/'],
+    ],
     'nav' => [
         ['id' => 'services', 'label' => 'Serviços'],
         ['id' => 'why', 'label' => 'Porquê nós'],

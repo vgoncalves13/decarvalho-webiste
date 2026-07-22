@@ -11,10 +11,12 @@ $baseUrl = rtrim((string) $config['base_url'], '/');
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title><?= htmlspecialchars($config['company_name'], ENT_QUOTES, 'UTF-8') ?> | Language Selection</title>
-  <meta name="description" content="Choose German or Portuguese to browse the De Carvalho Service GmbH website." />
+  <meta name="description" content="Choose German, Portuguese, English or French to browse the De Carvalho Service GmbH website." />
   <link rel="canonical" href="<?= htmlspecialchars($baseUrl . '/', ENT_QUOTES, 'UTF-8') ?>" />
   <link rel="alternate" hreflang="de-CH" href="<?= htmlspecialchars($baseUrl . '/de/', ENT_QUOTES, 'UTF-8') ?>" />
   <link rel="alternate" hreflang="pt" href="<?= htmlspecialchars($baseUrl . '/pt/', ENT_QUOTES, 'UTF-8') ?>" />
+  <link rel="alternate" hreflang="en" href="<?= htmlspecialchars($baseUrl . '/en/', ENT_QUOTES, 'UTF-8') ?>" />
+  <link rel="alternate" hreflang="fr" href="<?= htmlspecialchars($baseUrl . '/fr/', ENT_QUOTES, 'UTF-8') ?>" />
   <link rel="alternate" hreflang="x-default" href="<?= htmlspecialchars($baseUrl . '/', ENT_QUOTES, 'UTF-8') ?>" />
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,11 +31,13 @@ $baseUrl = rtrim((string) $config['base_url'], '/');
         <span class="badge-flag"></span>
         <span>Choose your language</span>
       </div>
-      <h1>Deutsch oder Português</h1>
-      <p class="language-intro">Select the version you want to visit. Automatic redirection may happen based on your browser language, but both versions are always available here.</p>
+      <h1>Deutsch, Português, English or Français</h1>
+      <p class="language-intro">Select the version you want to visit. Automatic redirection may happen based on your browser language, but every version stays available here.</p>
       <div class="language-actions">
         <a href="/de/" class="language-link" data-language-link="de">Deutsch</a>
         <a href="/pt/" class="language-link" data-language-link="pt">Português</a>
+        <a href="/en/" class="language-link" data-language-link="en">English</a>
+        <a href="/fr/" class="language-link" data-language-link="fr">Français</a>
       </div>
       <p class="language-note" data-auto-redirect-note>Checking your saved preference and browser language.</p>
       <div class="entry-contact">

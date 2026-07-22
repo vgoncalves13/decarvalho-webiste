@@ -31,13 +31,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const savedLanguage = localStorage.getItem(languageStorageKey);
   const browserLanguage = (navigator.language || '').toLowerCase();
-  const targetLanguage = savedLanguage || (browserLanguage.startsWith('pt') ? 'pt' : 'de');
-  const targetPath = targetLanguage === 'pt' ? '/pt/' : '/de/';
+  const languageMap = {
+    pt: '/pt/',
+    en: '/en/',
+    fr: '/fr/',
+    de: '/de/',
+  };
+  const targetLanguage = savedLanguage || detectLanguage(browserLanguage);
+  const targetPath = languageMap[targetLanguage] || '/de/';
 
   if (note) {
-    note.textContent = targetLanguage === 'pt'
-      ? 'Portuguese preference detected. Redirecting to /pt/.'
-      : 'German preference detected. Redirecting to /de/.';
+    const labelMap = {
+      pt: 'Portuguese',
+      en: 'English',
+      fr: 'French',
+      de: 'German',
+    };
+
+    note.textContent = `${labelMap[targetLanguage] || 'German'} preference detected. Redirecting to ${targetPath}.`;
   }
 
   redirectTimer = window.setTimeout(() => {
@@ -48,3 +59,19 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.assign(targetPath);
   }, 1200);
 });
+
+function detectLanguage(browserLanguage) {
+  if (browserLanguage.startsWith('pt')) {
+    return 'pt';
+  }
+
+  if (browserLanguage.startsWith('fr')) {
+    return 'fr';
+  }
+
+  if (browserLanguage.startsWith('en')) {
+    return 'en';
+  }
+
+  return 'de';
+}

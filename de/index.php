@@ -6,10 +6,7 @@ $config = require __DIR__ . '/../config/site.php';
 
 $page = [
     'locale' => 'de-CH',
-    'alternate_locale' => 'pt',
-    'alternate_label' => 'Português',
     'path' => '/de/',
-    'alternate_path' => '/pt/',
     'title' => 'Reinigung und Umzug in der Schweiz | De Carvalho Service GmbH',
     'meta_description' => 'De Carvalho Service GmbH bietet Reinigung, Endreinigung, Umzug, Möbeltransport und Büroreinigung in der Schweiz mit Betreuung auf Deutsch und Portugiesisch.',
     'structured_services' => [
@@ -20,6 +17,13 @@ $page = [
         'Büroreinigung',
     ],
     'menu_label' => 'Menü öffnen',
+    'language_switcher_label' => 'Sprachauswahl',
+    'languages' => [
+        ['locale' => 'de-CH', 'storage' => 'de', 'label' => 'Deutsch', 'path' => '/de/'],
+        ['locale' => 'pt', 'storage' => 'pt', 'label' => 'Português', 'path' => '/pt/'],
+        ['locale' => 'en', 'storage' => 'en', 'label' => 'English', 'path' => '/en/'],
+        ['locale' => 'fr', 'storage' => 'fr', 'label' => 'Français', 'path' => '/fr/'],
+    ],
     'nav' => [
         ['id' => 'services', 'label' => 'Leistungen'],
         ['id' => 'why', 'label' => 'Warum wir'],
