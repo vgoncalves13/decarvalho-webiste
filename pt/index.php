@@ -82,7 +82,7 @@ $page = [
         'intro' => 'A proposta é simples: facilitar a comunicação, alinhar bem o trabalho e executar o serviço com atenção ao que foi pedido.',
         'image_alt' => 'Materiais de limpeza e mudança em ilustração de apoio',
         'badge' => [
-            'title' => '4 línguas',
+            'title' => '4 idiomas',
             'headline' => 'Contacto direto',
             'text' => 'Acompanhamento em português, alemão, inglês ou francês',
         ],
