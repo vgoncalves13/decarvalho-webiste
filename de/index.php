@@ -8,7 +8,7 @@ $page = [
     'locale' => 'de-CH',
     'path' => '/de/',
     'title' => 'Reinigung und Umzug in der Schweiz | De Carvalho Service GmbH',
-    'meta_description' => 'De Carvalho Service GmbH bietet Reinigung, Endreinigung, Umzug, Möbeltransport und Büroreinigung in der Schweiz mit Betreuung auf Deutsch und Portugiesisch.',
+    'meta_description' => 'De Carvalho Service GmbH bietet Reinigung, Endreinigung, Umzug, Möbeltransport und Büroreinigung in der Schweiz mit Betreuung auf Deutsch, Portugiesisch, Englisch und Französisch.',
     'structured_services' => [
         'Reinigung',
         'Endreinigung',
@@ -42,23 +42,23 @@ $page = [
         'title_start' => 'Ihr zuverlässiger',
         'title_highlight' => 'Partner',
         'title_end' => 'für Reinigung, Umzug und Transporte',
-        'summary' => 'Professionelle Reinigung, Wohnungsabgaben, Umzugshilfe und Transportlösungen für Privat- und Geschäftskunden mit Betreuung auf Deutsch und Portugiesisch.',
+        'summary' => 'Professionelle Reinigung, Wohnungsabgaben, Umzugshilfe und Transportlösungen für Privat- und Geschäftskunden mit Betreuung auf Deutsch, Portugiesisch, Englisch und Französisch.',
         'image_alt' => 'Illustration für Reinigung und Umzug von De Carvalho Service GmbH',
         'stats' => [
-            ['value' => 'DE · PT', 'label' => 'Betreuung in zwei Sprachen'],
+            ['value' => 'DE · PT · EN · FR', 'label' => 'Betreuung in vier Sprachen'],
             ['value' => 'Privat', 'label' => 'Wohnungen, Häuser und Umzüge'],
             ['value' => 'Gewerbe', 'label' => 'Büros und laufende Reinigung'],
         ],
         'floating' => [
             ['title' => 'Saubere Abläufe', 'text' => 'Klare Kommunikation vom ersten Kontakt bis zum Termin'],
             ['title' => 'Sorgfältiger Transport', 'text' => 'Unterstützung bei Umzug, Möbeln und Lieferfahrten'],
-            ['title' => 'DE und PT', 'text' => 'Kontaktaufnahme in Deutsch oder Portugiesisch'],
+            ['title' => 'DE · PT · EN · FR', 'text' => 'Kontaktaufnahme in Deutsch, Portugiesisch, Englisch oder Französisch'],
         ],
     ],
     'trust' => [
         'label' => 'Kurze Übersicht über den Service',
         'items' => [
-            ['icon' => 'chat', 'title' => 'Deutsch und Portugiesisch', 'text' => 'Klare Kommunikation für Anfrage und Termin'],
+            ['icon' => 'chat', 'title' => 'Vier Sprachen', 'text' => 'Klare Kommunikation für Anfrage und Termin auf Deutsch, Portugiesisch, Englisch oder Französisch'],
             ['icon' => 'phone', 'title' => 'Telefon, E-Mail und WhatsApp', 'text' => 'Direkter Kontakt über den passenden Kanal'],
             ['icon' => 'home', 'title' => 'Privat und Gewerblich', 'text' => 'Wohnungen, Häuser, Büros und kleinere Gebäude'],
             ['icon' => 'truck', 'title' => 'Reinigung und Umzug', 'text' => 'Ein Ansprechpartner für mehrere Servicearten'],
@@ -82,9 +82,9 @@ $page = [
         'intro' => 'Sie erhalten einen direkten Ansprechpartner, eine nachvollziehbare Offerte und einen Service, der auf einfache Abstimmung und saubere Ausführung setzt.',
         'image_alt' => 'Materialien für Reinigung und Umzug als Platzhaltergrafik',
         'badge' => [
-            'title' => 'DE/PT',
+            'title' => '4 Sprachen',
             'headline' => 'Persönlicher Kontakt',
-            'text' => 'Abstimmung in Deutsch oder Portugiesisch je nach Wunsch',
+            'text' => 'Abstimmung in Deutsch, Portugiesisch, Englisch oder Französisch je nach Wunsch',
         ],
         'items' => [
             ['title' => 'Klare Offerten', 'text' => 'Leistungsumfang und gewünschter Termin werden sauber abgestimmt, bevor der Einsatz startet.'],
@@ -107,7 +107,7 @@ $page = [
         'eyebrow' => 'Kontakt aufnehmen',
         'title' => 'Kostenlose Offerte anfragen',
         'intro' => 'Nutzen Sie das Formular für Ihre Anfrage oder kontaktieren Sie uns direkt per Telefon, E-Mail oder WhatsApp.',
-        'phone_sub' => 'Kontakt in Deutsch oder Portugiesisch',
+        'phone_sub' => 'Kontakt in Deutsch, Portugiesisch, Englisch oder Französisch',
         'email_label' => 'E-Mail',
         'email_sub' => 'Für Offerten und allgemeine Anfragen',
         'whatsapp_label' => 'WhatsApp',

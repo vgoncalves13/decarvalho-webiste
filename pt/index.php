@@ -8,7 +8,7 @@ $page = [
     'locale' => 'pt',
     'path' => '/pt/',
     'title' => 'Limpeza e mudanças na Suíça | De Carvalho Service GmbH',
-    'meta_description' => 'A De Carvalho Service GmbH oferece limpeza, limpeza final, mudanças, transporte de móveis e limpeza de escritórios na Suíça, com atendimento em português e alemão.',
+    'meta_description' => 'A De Carvalho Service GmbH oferece limpeza, limpeza final, mudanças, transporte de móveis e limpeza de escritórios na Suíça, com atendimento em português, alemão, inglês e francês.',
     'structured_services' => [
         'Limpeza residencial',
         'Limpeza final',
@@ -42,23 +42,23 @@ $page = [
         'title_start' => 'O seu parceiro de',
         'title_highlight' => 'confiança',
         'title_end' => 'para limpeza, mudanças e transporte',
-        'summary' => 'Serviços de limpeza, apoio em mudanças, limpeza final e transporte para clientes particulares e empresas, com atendimento em português e alemão.',
+        'summary' => 'Serviços de limpeza, apoio em mudanças, limpeza final e transporte para clientes particulares e empresas, com atendimento em português, alemão, inglês e francês.',
         'image_alt' => 'Ilustração de limpeza e mudanças da De Carvalho Service GmbH',
         'stats' => [
-            ['value' => 'PT · DE', 'label' => 'Atendimento em duas línguas'],
+            ['value' => 'PT · DE · EN · FR', 'label' => 'Atendimento em quatro línguas'],
             ['value' => 'Casas', 'label' => 'Apartamentos, moradias e mudanças'],
             ['value' => 'Empresas', 'label' => 'Escritórios e limpeza recorrente'],
         ],
         'floating' => [
             ['title' => 'Organização clara', 'text' => 'Coordenação simples desde o primeiro pedido até ao dia do serviço'],
             ['title' => 'Transporte cuidado', 'text' => 'Apoio com móveis, caixas e deslocações programadas'],
-            ['title' => 'PT e DE', 'text' => 'Comunicação adaptada ao idioma do cliente'],
+            ['title' => 'PT · DE · EN · FR', 'text' => 'Comunicação adaptada ao idioma do cliente'],
         ],
     ],
     'trust' => [
         'label' => 'Resumo rápido do serviço',
         'items' => [
-            ['icon' => 'chat', 'title' => 'Português e alemão', 'text' => 'Comunicação clara para pedidos, orçamento e agendamento'],
+            ['icon' => 'chat', 'title' => 'Quatro línguas', 'text' => 'Comunicação clara para pedidos, orçamento e agendamento em português, alemão, inglês e francês'],
             ['icon' => 'phone', 'title' => 'Telefone, e-mail e WhatsApp', 'text' => 'Várias formas de contacto no dia a dia'],
             ['icon' => 'home', 'title' => 'Particular e empresarial', 'text' => 'Casas, apartamentos, escritórios e espaços pequenos'],
             ['icon' => 'truck', 'title' => 'Limpeza e mudanças', 'text' => 'Um único contacto para diferentes tipos de serviço'],
@@ -82,9 +82,9 @@ $page = [
         'intro' => 'A proposta é simples: facilitar a comunicação, alinhar bem o trabalho e executar o serviço com atenção ao que foi pedido.',
         'image_alt' => 'Materiais de limpeza e mudança em ilustração de apoio',
         'badge' => [
-            'title' => 'PT/DE',
+            'title' => '4 línguas',
             'headline' => 'Contacto direto',
-            'text' => 'Acompanhamento no idioma preferido do cliente',
+            'text' => 'Acompanhamento em português, alemão, inglês ou francês',
         ],
         'items' => [
             ['title' => 'Orçamentos claros', 'text' => 'O pedido é analisado e o serviço é explicado de forma objetiva antes da confirmação.'],
@@ -107,7 +107,7 @@ $page = [
         'eyebrow' => 'Entrar em contacto',
         'title' => 'Peça o seu orçamento',
         'intro' => 'Use o formulário para enviar o pedido ou escolha o canal mais prático para falar connosco diretamente.',
-        'phone_sub' => 'Atendimento em português ou alemão',
+        'phone_sub' => 'Atendimento em português, alemão, inglês ou francês',
         'email_label' => 'E-mail',
         'email_sub' => 'Para orçamentos e pedidos gerais',
         'whatsapp_label' => 'WhatsApp',
